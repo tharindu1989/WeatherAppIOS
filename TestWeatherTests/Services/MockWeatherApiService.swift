@@ -10,7 +10,7 @@ import Foundation
 class MockWeatherApiService : WeatherApiServiceProtocol {
     
     func fetchWeather(city: String) async throws -> WeatherResponse {
-        return WeatherResponse.empty()
+        return WeatherResponse.empty(forecasts: [Forecastday](repeating: Forecastday.empty(),count: 5))
     }
 }
 
