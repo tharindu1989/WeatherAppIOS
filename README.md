@@ -7,3 +7,15 @@ MVVM - Model, View, ViewModel (Recommended by Apple and SwiftUI comes with MVVM 
 ### Dependency
 
 - Alamofire 5.6.2 (Simple and easy to use. Also it provide generic completion callback makes it easy to decode the response )
+
+### Unit Test
+
+- Coverage 
+    - Current Weather Details 
+    - Daily Forecast Details 
+    - Date Formatter
+
+### Screens
+
+![Screenshot](Screens/home_screen.png)
+![Screenshot](Screens/error_screen.png)
