@@ -15,12 +15,36 @@ struct HomeScreen: View {
             SearchView(){ cityName in
                 viewModel.getWeatherData(cityName: cityName)
             }
-            if(viewModel.weather != nil) {
-                WeatherView(weather: viewModel.weather!)
+            ScrollView {
+                if(viewModel.weather != nil) {
+                    WeatherView(weather: viewModel.weather!)
+                }
+                if(!viewModel.dailyForecast.isEmpty){
+                    ForecastView(forcasts: viewModel.dailyForecast)
+                }
+                if(viewModel.error != nil){
+                    Text(viewModel.error!)
+                        .padding(Constants.Dimensions.defaultPadding)
+                        .bold()
+                        .font(.system(size: Constants.Font.SM))
+                        .foregroundStyle(.white)
+                }
             }
-        }.onAppear{
+        }
+        .onAppear{
             viewModel.getWeatherData(cityName: "London")
         }
+        .frame(
+            maxHeight:.infinity,
+            alignment: .topLeading
+        )
+        .padding(8)
+        .background(
+            LinearGradient(
+                gradient: Gradient(colors: Constants.Colors.gradientAPP),
+                startPoint: .topLeading, endPoint: .bottomTrailing
+            )
+        )
     }
 }
 

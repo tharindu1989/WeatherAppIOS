@@ -10,8 +10,8 @@ import Foundation
 struct Forecast: Codable {
     let forecastday: [Forecastday]
     
-    static func empty()->Forecast {
-        return Forecast(forecastday: [])
+    static func empty(list : [Forecastday] = [])->Forecast {
+        return Forecast(forecastday: list)
     }
 }
 
@@ -30,7 +30,7 @@ struct Forecastday: Codable, Identifiable {
     }
     
     static func empty() -> Forecastday{
-        return Forecastday(date: "Mon", dateEpoch: 1, day: Day.empty())
+        return Forecastday(date: "2022-11-11", dateEpoch: 1, day: Day.empty())
     }
 }
 

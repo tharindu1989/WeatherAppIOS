@@ -10,7 +10,7 @@ struct WeatherResponse: Codable {
     let current: CurrentWeather
     let forecast: Forecast
     
-    static func empty()->WeatherResponse {
-        return WeatherResponse(current: CurrentWeather.empty(), forecast: Forecast.empty())
+    static func empty(forecasts : [Forecastday] = [])->WeatherResponse {
+        return WeatherResponse(current: CurrentWeather.empty(), forecast: Forecast(forecastday: forecasts))
     }
 }
