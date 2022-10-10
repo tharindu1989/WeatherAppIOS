@@ -12,6 +12,10 @@ class Constants {
         static let API_KEY = "21237506e50e4d3b99c04446221010"
         static let BASE_URL = "https://api.weatherapi.com/v1/forecast.json"
         static let defaultCity = "London"
+        static let wind = "Wind Speed"
+        static let humidity = "Humidity"
+        static let rain = "Rain Chances"
+        static let feelsLike = "Feels Like"
     }
     
     class Dimensions {
