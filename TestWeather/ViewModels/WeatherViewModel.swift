@@ -10,6 +10,8 @@ import Foundation
 
 final class WeatherViewModel : ObservableObject {
     
+    @Published var weather : CurrentWeather? = nil
+    @Published var dailyForecast : [Forecastday] = []
     private let weatherRepository : WeatherRepositoryProtocol
     
     init(repository : WeatherRepositoryProtocol = WeatherRepository()){
@@ -20,6 +22,10 @@ final class WeatherViewModel : ObservableObject {
         Task{
             do{
                 let weather = try await weatherRepository.getWeatherInfo(city: cityName)
+                DispatchQueue.main.async {
+                    self.weather = weather.current
+                    self.dailyForecast = weather.forecast.forecastday
+                }
                 debugPrint(weather)
             }catch {
                 debugPrint(error)
